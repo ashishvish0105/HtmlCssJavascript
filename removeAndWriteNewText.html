@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Animation JavaScript</title>
+    <style>
+        body {
+            margin: 0 auto;
+            font-family: 'roboto_condensedlight', sans-serif;
+            background-color: #080706;
+        }
+
+
+        .homepage {
+            height: 100%;
+            margin: 0 auto;
+            overflow: hidden;
+            background-color: #080706;
+        }
+
+
+        .apresentacao {
+            font-size: 20px;
+            color: #fff;
+            text-align: center;
+            padding-top: 10%;
+            padding-bottom: 10%;
+            height: 100%;
+            width: 80%;
+            margin: 0 auto;
+            padding-left: 20px;
+            padding-right: 20px;
+            letter-spacing: 1px;
+            line-height: 70px;
+        }
+
+
+        .autor {
+            color: #999;
+            font-size: 14px;
+            text-align: center;
+        }
+
+
+        .autor a {
+            color: #999;
+            text-decoration: none;
+        }
+
+
+        .autor a:hover {
+            text-decoration: underline;
+        }
+
+
+        /* media queries */
+        @media screen and (max-width: 500px) {
+            .apresentacao {
+                font-size: 14px;
+                line-height: 50px;
+            }
+        }
+
+
+        /* created by magda pimentel, october 2017 */
+    </style>
+</head>
+
+<body>
+    <div class="homepage">
+
+        <div class="apresentacao">
+
+            <h1>I make your <span id="animacao" style="color: #c7ac75">content</span><span id="texto"></span> stand out
+                online</h1>
+
+        </div>
+
+
+    </div>
+
+    <script>
+        var animacao = document.getElementById('animacao'),
+            list = [
+                'content',
+                'brand',
+                'website',
+            ],
+            count_li = 0,
+            count = 0,
+            speed = 200;
+
+
+        function escrever() {
+            var tipo = list[count_li].substring(0, count);
+            document.getElementById('animacao').textContent = tipo;
+            count++;
+            var tempo = setTimeout(escrever, speed);
+            if (count > list[count_li].length) {
+                count = 0;
+                count_li++;
+                clearTimeout(tempo);
+                setTimeout(escrever, 2500);
+            }
+
+            if (count_li === list.length) {
+                count_li = 0;
+            }
+        }
+
+        escrever();
+
+
+
+
+
+        // created by magda pimentel, october 2017
+    </script>
+</body>
+
+</html>

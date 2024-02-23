@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="WebflowText"></h1>
+    <script>
+
+        var Webflow = Webflow || [];
+        Webflow.push(function () {
+            $.getScript('https://cdn.rawgit.com/mattboldt/typed.js/master/js/typed.js', function () {
+
+                $(".typed").typed({
+                    strings: ["How to integrate Typed.js"],
+                    typeSpeed: 50,
+                    startDelay: 250,
+                });
+                document.getElementById("WebflowText").innerText = Webflow;
+
+            });
+        });
+
+    </script>
+</body>
+
+</html>
