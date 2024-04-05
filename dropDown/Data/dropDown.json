@@ -1,0 +1,106 @@
+{
+    "title": "IS Department",
+    "dataAttrs": {
+        "id": 30,
+        "name": "IS Department",
+        "payrollAdminStatus": "Pending"
+    },
+    "items": [
+        {
+            "title": "09-03-2023 to 09-16-2023",
+            "dataAttrs": {
+                "id": 10,
+                "name": "09-03-2023 to 09-16-2023",
+                "parentId": 30
+            }
+        },
+        {
+            "title": "09-17-2023 to 09-30-2023",
+            "dataAttrs": {
+                "id": 11,
+                "name": "09-17-2023 to 09-30-2023",
+                "parentId": 30
+            }
+        },
+        {
+            "title": "08-13-2023 to 08-26-2023",
+            "dataAttrs": {
+                "id": 9,
+                "name": "08-13-2023 to 08-26-2023",
+                "parentId": 30
+            }
+        },
+        {
+            "title": "07-30-2023 to 08-12-2023",
+            "dataAttrs": {
+                "id": 8,
+                "name": "07-30-2023 to 08-12-2023",
+                "parentId": 30
+            }
+        },
+        {
+            "title": "01-07-2024 to 01-20-2024",
+            "dataAttrs": {
+                "id": 12,
+                "name": "01-07-2024 to 01-20-2024",
+                "parentId": 30
+            }
+        },
+        {
+            "title": "10-01-2023 to 10-14-2023",
+            "dataAttrs": {
+                "id": 1012,
+                "name": "10-01-2023 to 10-14-2023",
+                "parentId": 30
+            }
+        },
+        {
+            "title": "10-15-2023 to 10-28-2023",
+            "dataAttrs": {
+                "id": 1013,
+                "name": "10-15-2023 to 10-28-2023",
+                "parentId": 30
+            }
+        },
+        {
+            "title": "01-21-2024 to 02-03-2024",
+            "dataAttrs": {
+                "id": 1014,
+                "name": "01-21-2024 to 02-03-2024",
+                "parentId": 30
+            }
+        },
+        {
+            "title": "02-04-2024 to 02-17-2024",
+            "dataAttrs": {
+                "id": 1015,
+                "name": "02-04-2024 to 02-17-2024",
+                "parentId": 30
+            }
+        },
+        {
+            "title": "02-18-2024 to 03-02-2024",
+            "dataAttrs": {
+                "id": 1016,
+                "name": "02-18-2024 to 03-02-2024",
+                "parentId": 30
+            }
+        },
+        {
+            "title": "03-03-2024 to 03-16-2024",
+            "dataAttrs": {
+                "id": 1017,
+                "name": "03-03-2024 to 03-16-2024",
+                "parentId": 30
+            }
+        },
+        {
+            "title": "03-17-2024 to 03-30-2024",
+            "dataAttrs": {
+                "id": 1020,
+                "name": "03-17-2024 to 03-30-2024",
+                "parentId": 30
+            }
+        }
+    ]
+}

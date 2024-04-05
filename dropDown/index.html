@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+
+    <title>
+        Dropdown Tree
+    </title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+        integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet"
+        integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="./css/dropown.css">
+    <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="./js/dropdown.js"></script>
+
+</head>
+
+<body>
+    <div class="container">
+        <h1>Dropdown Tree</h1>
+        <div class="col-md-6">
+            <h3>Children Select:</h3>
+            <div class="dropdown dropdown-tree" id="firstDropDownTree"></div>
+        </div>
+
+
+        <script>
+
+            var arr4 = [
+                { title: "St Fatima", href: "#1", dataAttrs: [{ title: "dataattr1", data: "value1" }, { title: "dataattr2", data: "value2" }, { title: "dataattr3", data: "value3" }] }
+                ,
+                { title: "Korba", href: "#2", dataAttrs: [{ title: "dataattr4", data: "value4" }, { title: "dataattr5", data: "value5" }, { title: "dataattr6", data: "value6" }] }
+                ,
+                { title: "Roxi", href: "#3", dataAttrs: [{ title: "dataattr7", data: "value7" }, { title: "dataattr8", data: "value8" }, { title: "dataattr9", data: "value9" }] }
+            ];
+
+            var arr3 = [
+                { title: "Abbas Al Akkad", href: "#1", dataAttrs: [{ title: "dataattr1", data: "value1" }, { title: "dataattr2", data: "value2" }, { title: "dataattr3", data: "value3" }] }
+                ,
+                { title: "Makram Obeid", href: "#2", dataAttrs: [{ title: "dataattr4", data: "value4" }, { title: "dataattr5", data: "value5" }, { title: "dataattr6", data: "value6" }], data: arr4 }
+                ,
+                { title: "Mostafa Al Nahas", href: "#3", dataAttrs: [{ title: "dataattr7", data: "value7" }, { title: "dataattr8", data: "value8" }, { title: "dataattr9", data: "value9" }] }
+            ];
+
+            var arr2 = [
+                { title: "Teriumph", href: "#1", dataAttrs: [{ title: "dataattr1", data: "value1" }, { title: "dataattr2", data: "value2" }, { title: "dataattr3", data: "value3" }], data: arr3 }
+                ,
+                { title: "Safir", href: "#2", dataAttrs: [{ title: "dataattr4", data: "value4" }, { title: "dataattr5", data: "value5" }, { title: "dataattr6", data: "value6" }] }
+                ,
+                { title: "El-Hegaz Sq", href: "#3", dataAttrs: [{ title: "dataattr7", data: "value7" }, { title: "dataattr8", data: "value8" }, { title: "dataattr9", data: "value9" }] }
+            ];
+
+
+
+            var arr = [
+                { title: "Heliopolis", href: "#1", dataAttrs: [{ title: "dataattr1", data: "value1" }, { title: "dataattr2", data: "value2" }, { title: "dataattr3", data: "value3" }], data: arr2 }
+                ,
+                { title: "Nasr City", href: "#2", dataAttrs: [{ title: "dataattr4", data: "value4" }, { title: "dataattr5", data: "value5" }, { title: "dataattr6", data: "value6" }] }
+                ,
+                { title: "Down Town", href: "#3", dataAttrs: [{ title: "dataattr7", data: "value7" }, { title: "dataattr8", data: "value8" }, { title: "dataattr9", data: "value9" }], data: arr3 }
+            ];
+            
+            var options = {
+                title: "Areas 2",
+                data: arr4,
+                maxHeight: 300,
+                clickHandler: function (element) {
+                    debugger
+                    //gets clicked element parents
+                    console.log($(element).GetParents());
+                    //element is the clicked element
+                    console.log(element);
+                    $("#firstDropDownTree").SetTitle($(element).find("a").first().text());
+                    console.log("Selected Elements", $("#firstDropDownTree").GetSelected());
+                },
+                expandHandler: function (element, expanded) {
+                    console.log("expand", element, expanded);
+                },
+                checkHandler: function (element, checked) {
+                    console.log("check", element, checked);
+                },
+                closedArrow: '<i class="fa fa-caret-right" aria-hidden="true"></i>',
+                openedArrow: '<i class="fa fa-caret-down" aria-hidden="true"></i>',
+                multiSelect: true,
+                selectChildren: true,
+            }
+
+            $("#firstDropDownTree").DropDownTree(options);
+
+        </script>
+</body>
+
+</html>

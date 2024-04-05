@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Tooltip Example</title>
+    <style>
+        /* Tooltip container */
+        .tooltip {
+            position: relative;
+            display: inline-block;
+        }
+
+        /* Tooltip text */
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 120px;
+            background-color: black;
+            color: white;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px 0;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        /* Show the tooltip text when hovering */
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="tooltip" data-tooltip="This is a custom tooltip">
+        Hover over me
+    </div>
+
+    <script>
+        // Add event listeners to all elements with the 'tooltip' class
+        document.querySelectorAll('.tooltip').forEach(element => {
+            element.addEventListener('mouseenter', () => {
+                // Get the tooltip text from the 'data-tooltip' attribute
+                const tooltipText = element.getAttribute('data-tooltip');
+
+                // Create a tooltip element
+                const tooltip = document.createElement('div');
+                tooltip.classList.add('tooltiptext');
+                tooltip.textContent = tooltipText;
+
+                // Append the tooltip element to the body
+                document.body.appendChild(tooltip);
+
+                // Position the tooltip relative to the hovered element
+                const rect = element.getBoundingClientRect();
+                tooltip.style.top = rect.top + window.scrollY - tooltip.offsetHeight - 5 + 'px';
+                tooltip.style.left = rect.left + window.scrollX + rect.width / 2 - tooltip.offsetWidth / 2 + 'px';
+            });
+
+            element.addEventListener('mouseleave', () => {
+                // Remove the tooltip element when mouse leaves the element
+                document.querySelector('.tooltiptext')?.remove();
+            });
+        });
+
+    </script>
+</body>
+
+</html>
