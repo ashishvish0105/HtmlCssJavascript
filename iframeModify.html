@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        #fullScreen {
+            border: 1px solid black;
+        }
+        .btn-Screen {
+            font-size: 16px;
+            padding: 8px 30px;
+            margin: 15px 30px;
+            text-transform: capitalize;
+        }
+        .fullScreen {
+            width: 98vw !important;
+            height: 98vh !important;
+        }
+    </style>
+</head>
+<body>
+
+    <div style="text-align: center;">
+        <iframe id="fullScreen" style="height: 98vh; width: 900px;" src="https://localhost:44304" frameborder="0"></iframe>
+    </div>
+    <div>
+        <button class="btn-Screen" onclick="fullScreen()">Full Screen</button>
+    </div>
+
+    <script>
+        function fullScreen() {
+            const iframe = document.getElementById("fullScreen");
+            if (iframe.classList.contains("fullScreen")) {
+                iframe.classList.remove("fullScreen");
+            } else {
+                iframe.classList.add("fullScreen");
+            }
+
+            // Access the content inside the iframe
+            const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+            const navbarExpandSm = iframeDoc.getElementsByClassName("navbar-expand-sm");
+
+            // Add class to each element with class 'navbar-expand-sm'
+            for (let i = 0; i < navbarExpandSm.length; i++) {
+                navbarExpandSm[i].classList.add("addiframeClass");
+            }
+        }
+    </script>
+</body>
+</html>
