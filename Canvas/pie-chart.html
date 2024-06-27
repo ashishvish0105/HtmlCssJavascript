@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pie chat</title>
+    <style>
+        .body {
+            background-color: #dfd5d57a;
+        }
+
+        .pie-chart-box {
+            background-color: rgb(255 184 197 / 29%);
+            height: 400px;
+            width: 600px;
+            border: 2px dashed pink;
+            position: relative;
+            left: 50%;
+            transform: translatex(-50%);
+        }
+    </style>
+</head>
+
+<body class="body">
+
+    <canvas id="pie-chart" class="pie-chart-box"></canvas>
+    <script>
+        data = [
+            { label: "Apple", ToatalQuntity: 198 },
+            { label: "Toyota", ToatalQuntity: 250 },
+            { label: "ConocoPhillips", ToatalQuntity: 248 },
+            { label: "Chevron", ToatalQuntity: 270 },
+            { label: "Sinopec", ToatalQuntity: 290 },
+            { label: "Vitol", ToatalQuntity: 320 },
+            { label: "British Petroleum", ToatalQuntity: 410 },
+            { label: "WalMart", ToatalQuntity: 464 },
+            { label: "Royal Dutch Shell", ToatalQuntity: 492 },
+            { label: "Exxon Mobil", ToatalQuntity: 502 }
+        ];
+
+
+
+        const readmColor = () => {
+            return "#" + Math.random().toString().slice(2, 8)
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            let picChart = document.getElementById("pie-chart");
+            let ctx = picChart.getContext('2d');
+            console.log(ctx);
+
+        })
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .loader-box {
+            background: #bdb5b5;
+            height: 100vh;
+            width: 100vw;
+            position: fixed;
+            top: 0;
+            margin: 0;
+            padding: 0;
+            left: 0;
+        }
+        
+        .loading {
+            height: 0;
+            width: 0;
+            padding: 70px;
+            border: 20px solid #ccc;
+            border-right-color: #888;
+            border-radius: 50%;
+            -webkit-animation: rotate 1s infinite linear;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            /* transform: translate(-50%, -50%); */
+        }
+        
+        @-webkit-keyframes rotate {
+            /* 100% keyframe for  clockwise. 
+     use 0% instead for anticlockwise */
+            100% {
+                -webkit-transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <iframe id="gameIframe" style="height: 600px; width: 900px;overflow: hidden;" src="https://cyberninjasweb.s3.ap-southeast-2.amazonaws.com/Cyberninjas/index.html" frameborder="0"></iframe>
+
+    <div id="loaderShow" class="loader-box">
+        <div class="loading"></div>
+    </div>
+
+
+    <button onclick="minAndMaxSizeIframe()">size click</button>
+
+    <script>
+        function minAndMaxSizeIframe() {
+            var intervalId = setInterval(function() {
+                const iframe = document.getElementById('gameIframe');
+
+                // Check if the iframe exists
+                if (iframe) {
+                    // Set iframe dimensions and class
+                    if (iframe.classList.contains("activeIframe")) {
+                        iframe.style.height = "100vh";
+                        iframe.style.width = "100vw";
+                    } else {
+                        iframe.style.height = "600px";
+                        iframe.style.width = "900px";
+                    }
+                }
+
+                // Clear interval and hide loader
+                clearInterval(intervalId);
+                document.getElementById("loaderShow").style.display = "none";
+            }, 2000);
+        }
+    </script>
+    <script>
+        // document.getElementById('gameIframe').addEventListener('load', function() {
+        //     var iframe = document.getElementById('gameIframe');
+        //     var iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
+        //     var container = iframeDocument.getElementById('unity-container');
+        //     container.style.textAlign = 'center';
+        // });
+
+        // var intervalId = setInterval(function() {
+        //     debugger
+        //     var iframe = document.getElementById('gameIframe');
+        //     var iframeDocument = iframe.contentDocument;
+
+        //     // Check if the element exists in the iframe
+        //     var container = iframeDocument.getElementById('unity-container');
+        //     if (container) {
+        //         // If the element exists, apply the CSS styling
+        //         container.style.textAlign = 'center';
+
+        //         // Clear the interval because the task is done
+        //         clearInterval(intervalId);
+        //     }
+        // }, 2000);
+    </script>
+</body>
+
+</html>

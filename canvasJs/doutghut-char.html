@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>jQuery Doughnut Chart</title>
+    <script type="text/javascript" src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="https://cdn.canvasjs.com/jquery.canvasjs.min.js"></script>
+    <script type="text/javascript">
+        window.onload = function () {
+            $("#chartContainer").CanvasJSChart({
+                title: {
+                    text: "Percentage Population of Countries in EU - 2007"
+                },
+                data: [
+                    {
+                        type: "doughnut",
+                        indexLabel: "{label}: {y}%",
+                        toolTipContent: "{label}: {y}%",
+                        dataPoints: [
+                            { label: "2020", y: 10 },
+                            { label: "2011", y: 15 },
+                            { label: "2010", y: 20 },
+                            { label: "Italy", y: 11.9 },
+                            { label: "Spain", y: 9.0 },
+                            { label: "Poland", y: 7.7 },
+                            { label: "Other (21 Countries)", y: 29.7 }
+                        ]
+                    }
+                ]
+            });
+        } 
+    </script>
+</head>
+
+<body>
+    <div id="chartContainer" style="width: 100%; height: 300px"></div>
+</body>
+
+</html>
