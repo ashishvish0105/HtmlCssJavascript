@@ -1,0 +1,399 @@
+<html lang="da">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faktura Generator with Print</title>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f1f2f3;
+            padding: 20px;
+            margin: 0;
+            user-select: none;
+        }
+
+        .material-symbols-rounded {
+            font-variation-settings:
+                'FILL' 1,
+                'wght' 400,
+                'GRAD' 0,
+                'opsz' 24;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+        }
+
+        .header span {
+            margin-right: 10px;
+            color: black;
+        }
+
+        .header:hover span,
+        .header:hover h1 {
+            color: grey;
+        }
+
+        .invoice {
+            max-width: 800px;
+            margin: auto;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+        }
+
+        h1 {
+            margin: 0;
+            color: black;
+            cursor: pointer;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: #fff;
+        }
+
+        th,
+        td {
+            border-bottom: 1px solid #e0e0e0;
+            padding: 16px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #fff;
+            color: black;
+        }
+
+        td {
+            background-color: #fff;
+            text-align: right;
+        }
+
+        .description-col {
+            width: 35%;
+        }
+
+        .quantity-col,
+        .price-col {
+            width: 20%;
+        }
+
+        .total-col {
+            width: 25%;
+            text-align: right;
+        }
+
+        .totals {
+            text-align: right;
+            margin-top: 20px;
+            position: relative;
+        }
+
+        .no-print {
+            display: none;
+        }
+
+        @media print {
+            .no-print {
+                display: none !important;
+            }
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            width: calc(100%);
+            box-sizing: border-box;
+            word-wrap: break-word;
+            margin-top: 4px;
+            margin-bottom: 4px;
+            border: none;
+            border-bottom: 2px solid #f5f5f5;
+            outline: none;
+            background-color: transparent;
+        }
+
+        .add-row-btn,
+        .rmw-row-btn,
+        .print-row-btn,
+        button {
+            display: inline-block;
+            margin-top: 20px;
+            float: left;
+            padding: 14px 28px;
+            position: left;
+            margin-right: 5px;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .add-row-btn {
+            background-color: #189bcc;
+        }
+
+        .add-row-btn:hover {
+            background-color: #4b4e6c;
+        }
+
+        .rmw-row-btn {
+            background-color: #f68b70;
+        }
+
+        .rmw-row-btn:hover {
+            background-color: #f35a33;
+        }
+
+        .print-row-btn {
+            background-color: darkgrey;
+        }
+
+        .print-row-btn:hover {
+            background-color: grey;
+        }
+
+        button {
+            margin-top: 20px;
+            display: block;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 0.8em;
+            color: #666;
+        }
+
+        .tax-field strong {
+            margin-right: 10px;
+            white-space: nowrap;
+        }
+
+        .tax-field input {
+            width: 80px;
+            margin-left: 5px;
+        }
+
+        .tax {
+            display: flex;
+        }
+
+        svg {
+            height: 25px;
+            width: 25px;
+        }
+
+        .material-symbols-rounded-one {
+            font-family: 'Material Symbols Rounded';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="invoice">
+        <div class="header">
+            <?xml version="1.0" encoding="iso-8859-1"?>
+            <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+            <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+            <svg style="margin-right: 15px;" fill="#000000" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink" width="800px" height="800px" viewBox="0 0 950.4 950.4"
+                xml:space="preserve">
+                <g>
+                    <g>
+                        <path d="M430,206.95l-197.5,211c-14.4,21-9,49.6,11.9,63.899L443.3,618.15v132.5c0,25.199,20,46.301,45.2,46.801
+			c25.8,0.398,46.8-20.301,46.8-46v-157.4c0-15.201-7.5-29.4-20-37.9l-127.6-87.5l107.4-113.899l55,125.3
+			c7.3,16.699,23.899,27.5,42.1,27.5h167.5c25.2,0,46.3-20,46.8-45.201c0.4-25.8-20.3-46.8-46-46.8H622.4
+			c-18.2-41.4-37.601-82.4-54.5-124.4c-8.601-21.2-13.4-30.4-29.2-45c-3.2-3-25.5-23.4-45.4-41.6
+			C475,187.95,446.8,189.05,430,206.95z" />
+                        <circle cx="618.4" cy="124.55" r="105.4" />
+                        <circle cx="194" cy="737.25" r="194" />
+                        <circle cx="756.4" cy="737.25" r="194" />
+                    </g>
+                </g>
+            </svg>
+
+            <h1 id="invoice-type" onclick="toggleInvoiceType()">Faktura</h1>
+        </div>
+        <p><input type="text" id="from" placeholder="Firmaets informationer"></p>
+        <p><input type="text" id="to" placeholder="Kundens informationer"></p>
+
+        <table id="invoice-table">
+            <thead>
+                <tr>
+                    <th class="description-col">Beskrivelse</th>
+                    <th class="quantity-col">Antal</th>
+                    <th class="price-col">Pris</th>
+                    <th class="total-col">Total</th>
+                    <th class="no-print">Handlinger</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="text" placeholder="Beskrivelse"></td>
+                    <td><input type="number" placeholder="Antal" oninput="calculateTotal(this)"></td>
+                    <td><input type="number" placeholder="Pris" oninput="calculateTotal(this)"></td>
+                    <td class="total">0,00 DKK</td>
+                    <td class="no-print"><button class="material-icons remove-row"
+                            onclick="removeRow(this)">delete</button></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="totals">
+            <button class="add-row-btn no-print" onclick="addRow()">
+                <?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+                <svg width="800px" height="800px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M8 6.00067L21 6.00139M8 12.0007L21 12.0015M8 18.0007L21 18.0015M3.5 6H3.51M3.5 12H3.51M3.5 18H3.51M4 6C4 6.27614 3.77614 6.5 3.5 6.5C3.22386 6.5 3 6.27614 3 6C3 5.72386 3.22386 5.5 3.5 5.5C3.77614 5.5 4 5.72386 4 6ZM4 12C4 12.2761 3.77614 12.5 3.5 12.5C3.22386 12.5 3 12.2761 3 12C3 11.7239 3.22386 11.5 3.5 11.5C3.77614 11.5 4 11.7239 4 12ZM4 18C4 18.2761 3.77614 18.5 3.5 18.5C3.22386 18.5 3 18.2761 3 18C3 17.7239 3.22386 17.5 3.5 17.5C3.77614 17.5 4 17.7239 4 18Z"
+                        stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </button>
+            <button class="rmw-row-btn no-print" onclick="removeLastRow()">
+                <?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+                <svg fill="#000000" width="800px" height="800px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M5.755,20.283,4,8H20L18.245,20.283A2,2,0,0,1,16.265,22H7.735A2,2,0,0,1,5.755,20.283ZM21,4H16V3a1,1,0,0,0-1-1H9A1,1,0,0,0,8,3V4H3A1,1,0,0,0,3,6H21a1,1,0,0,0,0-2Z" />
+                </svg>
+            </button>
+            <button class="print-row-btn no-print" onclick="window.print()">
+                <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+                <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+                <svg width="800px" height="800px" viewBox="0 -2 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+
+                    <title>print</title>
+                    <desc>Created with Sketch Beta.</desc>
+                    <defs>
+
+                    </defs>
+                    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+                        <g id="Icon-Set" sketch:type="MSLayerGroup" transform="translate(-100.000000, -205.000000)"
+                            fill="#000000">
+                            <path
+                                d="M130,226 C130,227.104 129.104,228 128,228 L125.858,228 C125.413,226.278 123.862,225 122,225 L110,225 C108.138,225 106.587,226.278 106.142,228 L104,228 C102.896,228 102,227.104 102,226 L102,224 C102,222.896 102.896,222 104,222 L128,222 C129.104,222 130,222.896 130,224 L130,226 L130,226 Z M122,231 L110,231 C108.896,231 108,230.104 108,229 C108,227.896 108.896,227 110,227 L122,227 C123.104,227 124,227.896 124,229 C124,230.104 123.104,231 122,231 L122,231 Z M108,209 C108,207.896 108.896,207 110,207 L122,207 C123.104,207 124,207.896 124,209 L124,220 L108,220 L108,209 L108,209 Z M128,220 L126,220 L126,209 C126,206.791 124.209,205 122,205 L110,205 C107.791,205 106,206.791 106,209 L106,220 L104,220 C101.791,220 100,221.791 100,224 L100,226 C100,228.209 101.791,230 104,230 L106.142,230 C106.587,231.723 108.138,233 110,233 L122,233 C123.862,233 125.413,231.723 125.858,230 L128,230 C130.209,230 132,228.209 132,226 L132,224 C132,221.791 130.209,220 128,220 L128,220 Z"
+                                id="print" sketch:type="MSShapeGroup">
+
+                            </path>
+                        </g>
+                    </g>
+                </svg>
+            </button>
+
+            <div class="tax-field">
+                <p><span style="vertical-align: middle; color: red; font-size: 2em;"
+                        class="material-symbols-rounded-one">
+                    </span><input type="number" id="tax" placeholder="Moms %" oninput="updateTotals()"></p>
+            </div>
+
+            <div class="tax-field">
+                <p><span style="vertical-align: middle; color: green; font-size: 2em;"
+                        class="material-symbols-rounded-one">
+                    </span><input type="number" id="discount" placeholder="Rabat %" oninput="updateTotals()"></p>
+            </div>
+
+            <p style="color: grey; font-size: 0.8em;"><strong>Subtotal:</strong> <span id="subtotal">0,00 DKK</span></p>
+            <p style="color: grey; font-size: 0.8em;"><strong>Moms udgør:</strong> <span id="tax-amount">0,00 DKK</span>
+            </p>
+            <p style="color: grey; font-size: 0.8em;"><strong>Besparelse:</strong> <span id="discount-amount">0,00
+                    DKK</span></p>
+            <p style="color: darkblue; font-size: 1.3em; font-weight: bold;"><strong>Total:</strong> <span
+                    id="total">0,00 DKK</span></p>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>Skabt af Marc Sonne Dahl <span style="vertical-align: middle; font-size: 1.3em;"
+                class="material-symbols-rounded">
+                copyright
+            </span> 2024</p>
+    </div>
+
+    <script>
+        function toggleInvoiceType() {
+            var invoiceType = document.getElementById('invoice-type');
+            if (invoiceType.innerText === "Faktura") {
+                invoiceType.innerText = "Tilbud";
+            } else {
+                invoiceType.innerText = "Faktura";
+            }
+        }
+
+        function addRow() {
+            const table = document.getElementById('invoice-table').getElementsByTagName('tbody')[0];
+            const newRow = document.createElement('tr');
+            newRow.innerHTML = `<td><input type="text" placeholder="Beskrivelse"></td>
+                          <td><input type="number" placeholder="Antal" oninput="calculateTotal(this)"></td>
+                          <td><input type="number" placeholder="Pris" oninput="calculateTotal(this)"></td>
+                          <td class="total">0,00 DKK</td>
+                          <td class="no-print"><button class="material-icons remove-row" onclick="removeRow(this)">delete</button></td>`;
+            table.appendChild(newRow);
+        }
+
+        function removeRow(element) {
+            const row = element.closest('tr');
+            row.parentNode.removeChild(row);
+            updateTotals();
+        }
+
+        function removeLastRow() {
+            const table = document.getElementById('invoice-table').getElementsByTagName('tbody')[0];
+            if (table.rows.length > 1) {
+                table.deleteRow(-1);
+                updateTotals();
+            }
+        }
+
+        function calculateTotal(element) {
+            const row = element.closest('tr');
+            const quantity = row.cells[1].getElementsByTagName('input')[0].value;
+            const price = row.cells[2].getElementsByTagName('input')[0].value;
+            const total = row.cells[3];
+            total.innerText = `${(quantity * price).toFixed(2)} DKK`;
+            updateTotals();
+        }
+
+        function updateTotals() {
+            const rows = document.querySelectorAll('#invoice-table tbody tr');
+            let subtotal = 0;
+            rows.forEach(row => {
+                const total = parseFloat(row.cells[3].innerText.replace(' DKK', ''));
+                subtotal += total;
+            });
+            const taxRate = document.getElementById('tax').value / 100;
+            const discountRate = document.getElementById('discount').value / 100;
+            const taxAmount = subtotal * taxRate;
+            const discountAmount = subtotal * discountRate;
+            const totalAmount = subtotal + taxAmount - discountAmount;
+            document.getElementById('subtotal').innerText = `${subtotal.toFixed(2)} DKK`;
+            document.getElementById('tax-amount').innerText = `${taxAmount.toFixed(2)} DKK`;
+            document.getElementById('discount-amount').innerText = `${discountAmount.toFixed(2)} DKK`;
+            document.getElementById('total').innerText = `${totalAmount.toFixed(2)} DKK`;
+        }
+    </script>
+</body>
+
+</html>

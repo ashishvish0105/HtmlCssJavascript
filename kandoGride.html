@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!DOCTYPE html>
+    <html>
+
+    <head>
+        <title></title>
+
+
+        <link rel="stylesheet" href="https://kendo.cdn.telerik.com/themes/7.2.1/default/default-main.css" />
+        <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+        <script src="https://unpkg.com/jszip/dist/jszip.min.js"></script>
+        <script src="https://kendo.cdn.telerik.com/2024.1.319/js/kendo.all.min.js"></script>
+
+    </head>
+
+    <body>
+
+
+        <div id="example">
+            <div id="grid"></div>
+
+            <script>
+                $(document).ready(function () {
+                    var products = [{
+                        ProductID: 1,
+                        ProductName: "Chai",
+                        SupplierID: 1,
+                        CategoryID: 1,
+                        QuantityPerUnit: "10 boxes x 20 bags",
+                        UnitPrice: 18.0000,
+                        UnitsInStock: 39,
+                        UnitsOnOrder: 0,
+                        ReorderLevel: 10,
+                        Discontinued: false,
+                        Category: {
+                            CategoryID: 1,
+                            CategoryName: "Beverages",
+                            Description: "Soft drinks, coffees, teas, beers, and ales"
+                        }
+                    }, {
+                        ProductID: 2,
+                        ProductName: "Chang",
+                        SupplierID: 1,
+                        CategoryID: 1,
+                        QuantityPerUnit: "24 - 12 oz bottles",
+                        UnitPrice: 19.0000,
+                        UnitsInStock: 17,
+                        UnitsOnOrder: 40,
+                        ReorderLevel: 25,
+                        Discontinued: false,
+                        Category: {
+                            CategoryID: 1,
+                            CategoryName: "Beverages",
+                            Description: "Soft drinks, coffees, teas, beers, and ales"
+                        }
+                    }];
+                    $("#grid").kendoGrid({
+                        dataSource: {
+                            data: products,
+                            schema: {
+                                model: {
+                                    fields: {
+                                        ProductName: { type: "string" },
+                                        UnitPrice: { type: "number" },
+                                        UnitsInStock: { type: "number" },
+                                        Discontinued: { type: "boolean" }
+                                    }
+                                }
+                            },
+                            pageSize: 20
+                        },
+                        height: 550,
+                        scrollable: true,
+                        sortable: true,
+                        filterable: true,
+                        pageable: {
+                            input: true,
+                            numeric: false
+                        },
+                        columns: [
+                            "ProductName",
+                            { field: "UnitPrice", title: "Unit Price", format: "{0:c}", width: "130px" },
+                            { field: "UnitsInStock", title: "Units In Stock", width: "130px" },
+                            { field: "Discontinued", width: "130px" }
+                        ]
+                    });
+                });
+            </script>
+        </div>
+
+
+
+    </body>
+
+    </html>
+
+</body>
+
+</html>
