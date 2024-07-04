@@ -137,6 +137,7 @@
         var elem = document.getElementById("fullScreen");
 
         function openFullscreen() {
+            elem.style.display = "none"
             if (elem.requestFullscreen) {
                 elem.requestFullscreen();
             } else if (elem.webkitRequestFullscreen) { /* Safari */
@@ -144,6 +145,17 @@
             } else if (elem.msRequestFullscreen) { /* IE11 */
                 elem.msRequestFullscreen();
             }
+        }
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape' || event.key === 'Esc' || event.keyCode === 27) {
+                // Call your function here
+                myFunction();
+            }
+        });
+
+        function myFunction() {
+            elem.style.display = "inline-block";
         }
     </script>
 </body>

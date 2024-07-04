@@ -65,7 +65,7 @@
             </ul>
         </div>
 
-        <div class="video-box p-50 pt-2 my-2 shadow-sm" id="theGame">
+        <div class="video-box p-50 pt-2 my-2 shadow-sm" id="theGame" style="margin: 0 50px;">
             <div class="video-info d-flex justify-content-between flex-wrap gap-3 my-3">
                 <h3 class="video-text text ms-0 mb-0">the Game</h3>
                 <a href="https://cyberninjasweb.s3.ap-southeast-2.amazonaws.com/Cyberninjas/index.html" target="_blank" class="btn">
@@ -80,7 +80,46 @@
                 <source src="movie.ogg" type="video/ogg">
               Your browser does not support the video tag.
               </video> -->
-            <iframe id="gameIframe" class="thegame" src="https://cyberninjasweb.s3.ap-southeast-2.amazonaws.com/Cyberninjas/index.html" title="this website for the game "></iframe>
+            <div style="position: relative;">
+                <iframe id="gameIframe" class="thegame" src="http://127.0.0.1:5500/Documents/index.html" title="this website for the game "></iframe>
+
+                <button id="fullScreenBtn" title="click here to enter into full screen game" onclick="openFullscreen()" class="fullScreen-btn" style="
+            background: black;
+            padding: 10px;
+            border: 2px solid white;
+            border-radius: 10px;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+        ">
+                <?xml version="1.0" encoding="iso-8859-1"?>
+
+                <svg fill="#000000" height="800px" width="800px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+                     viewBox="0 0 384.97 384.97" xml:space="preserve" style="height: 30px;width: 30px;">
+                <g>
+                    <g id="Fullscreen_1_">
+                        <path d="M372.939,216.545c-6.123,0-12.03,5.269-12.03,12.03v132.333H24.061V24.061h132.333c6.388,0,12.03-5.642,12.03-12.03
+                            S162.409,0,156.394,0H24.061C10.767,0,0,10.767,0,24.061v336.848c0,13.293,10.767,24.061,24.061,24.061h336.848
+                            c13.293,0,24.061-10.767,24.061-24.061V228.395C384.97,221.731,380.085,216.545,372.939,216.545z"/>
+                        <path d="M372.939,0H252.636c-6.641,0-12.03,5.39-12.03,12.03s5.39,12.03,12.03,12.03h91.382L99.635,268.432
+                            c-4.668,4.668-4.668,12.235,0,16.903c4.668,4.668,12.235,4.668,16.891,0L360.909,40.951v91.382c0,6.641,5.39,12.03,12.03,12.03
+                            s12.03-5.39,12.03-12.03V12.03l0,0C384.97,5.558,379.412,0,372.939,0z"/>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                </g>
+                </svg></button>
+            </div>
         </div>
 
         <div class="title-description-box m-50 bg-white  my-2">
@@ -146,29 +185,31 @@
     </footer>
 </body>
 
-<!-- <script>
-    // document.getElementById('gameIframe').addEventListener('load', function() {
-    //     var iframe = document.getElementById('gameIframe');
-    //     var iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
-    //     var container = iframeDocument.getElementById('unity-container');
-    //     container.style.textAlign = 'center';
-    // });
+<script>
+    var elem = document.getElementById("gameIframe");
+    var fullScreenBtn = document.getElementById("fullScreenBtn");
 
-    var intervalId = setInterval(function() {
-        debugger
-        var iframe = document.getElementById('gameIframe');
-        var iframeDocument = iframe.contentDocument;
-
-        // Check if the element exists in the iframe
-        var container = iframeDocument.getElementById('unity-container');
-        if (container) {
-            // If the element exists, apply the CSS styling
-            container.style.textAlign = 'center';
-
-            // Clear the interval because the task is done
-            clearInterval(intervalId);
+    function openFullscreen() {
+        elem.classList.add("thegame-fullView");
+        // fullScreenBtn.style.display = "none"
+        if (elem.requestFullscreen) {
+            elem.requestFullscreen();
+        } else if (elem.webkitRequestFullscreen) { /* Safari */
+            elem.webkitRequestFullscreen();
+        } else if (elem.msRequestFullscreen) { /* IE11 */
+            elem.msRequestFullscreen();
         }
-    }, 2000); // Interval in milliseconds
-</script> -->
+    }
+
+    // document.addEventListener('DOMContentLoaded', function() {
+    //     const fullScreenBtn = document.getElementById('fullScreenBtn');
+    //     document.addEventListener('keydown', function(event) {
+    //         debugger;
+    //         if (event.key === 'Escape' || event.keyCode === 27) {
+    //             fullScreenBtn.style.display = "inline-block";
+    //         }
+    //     });
+    // });
+</script>
 
 </html>
