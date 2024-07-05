@@ -7,16 +7,6 @@
     <title>Cyberninjas</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
-    <style>
-        .thegame-fullView canvas {
-            height: calc(100vh - 6vh);
-            background-color: red;
-        }
-        
-        #unity-canvas {
-            background-color: red;
-        }
-    </style>
 </head>
 
 <body>
@@ -33,15 +23,18 @@
         <div id="unity-footer">
             <div id="unity-webgl-logo"></div>
             <div id="unity-fullscreen-button"></div>
-            <div id="unity-build-title">
+            <div id="unity-build-title" style="position: relative;">
                 <button id="fullScreenBtn" title="click here to enter into full screen game" onclick="openFullscreen()" class="fullScreen-btn" style="
-                background: black;
+                background: white;
                 padding: 10px;
-                border: 2px solid white;
+                border: 2px solid #cdcbcb;
                 border-radius: 10px;
                 position: absolute;
                 bottom: 0;
                 right: 0;
+                height: 60px;
+                width: 60px;
+                line-height: 60px;
             ">
                     <?xml version="1.0" encoding="iso-8859-1"?>
     
@@ -142,11 +135,8 @@
         } else {
             // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
 
-            // canvas.style.width = "960px";
-            // canvas.style.height = "600px";
-
             canvas.style.width = "100%";
-            canvas.style.height = "100%";
+            canvas.style.height = "600px";
         }
 
         loadingBar.style.display = "block";
@@ -167,6 +157,20 @@
         };
 
         document.body.appendChild(script);
+
+
+        var elem = document.getElementById("unity-canvas");
+        var fullScreenBtn = document.getElementById("fullScreenBtn");
+
+        function openFullscreen() {
+            if (elem.requestFullscreen) {
+                elem.requestFullscreen();
+            } else if (elem.webkitRequestFullscreen) { /* Safari */
+                elem.webkitRequestFullscreen();
+            } else if (elem.msRequestFullscreen) { /* IE11 */
+                elem.msRequestFullscreen();
+            }
+        }
     </script>
 </body>
 
