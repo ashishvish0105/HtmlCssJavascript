@@ -3,7 +3,9 @@
     padding: 0;
     box-sizing: border-box;
 }
-
+button:hover{
+    cursor: pointer;
+}
 .outer-box {
     height: 100vh;
     width: 100vw;
@@ -15,6 +17,10 @@
 
 .buttonGroup {
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
 }
 
 .connect-btn {
@@ -43,9 +49,28 @@
     display: block;
 }
 
-img {
+ .connect-btn img {
     width: 100%;
     object-fit: inherit;
     max-width: 300px;
     height: 100px;
+}
+
+.connect-btn.amazon-shado{
+    box-shadow: inset 0 0 20px #ff9900, 0 0 20px #221f1f;
+}
+.connect-btn.google-shado{
+    box-shadow: inset 0 0 20px #4285f4, 0 0 20px #221f1f;
+}
+.sync-btn{
+    background: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 10px;
+    font-size: 18px;
+}
+
+.sync-btn img{
+    height: 40px;
+    width: 40px;
 }
