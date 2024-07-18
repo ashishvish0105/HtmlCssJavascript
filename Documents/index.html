@@ -1,33 +1,37 @@
 <!DOCTYPE html>
 <html lang="en-us">
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Cyberninjas</title>
-    <link rel="shortcut icon" href="TemplateData/favicon.ico" type="text/css">
-    <link rel="stylesheet" href="TemplateData/style.css" type="text/css">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>Cyberninjas</title>
+        <link rel="shortcut icon" href="TemplateData/favicon.ico"
+            type="text/css">
+        <link rel="stylesheet" href="TemplateData/style.css" type="text/css">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <meta http-equiv="Permissions-Policy" content="fullscreen=(self)"> -->
-</head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- <meta http-equiv="Permissions-Policy" content="fullscreen=(self)"> -->
+    </head>
 
-<body>
-    <div id="unity-container" class="unity-desktop">
-        <!-- style="height: 100% !important;width: 100% !important;" -->
-        <canvas id="unity-canvas" tabindex="-1"></canvas>
-        <div id="unity-loading-bar">
-            <div id="unity-logo"></div>
-            <div id="unity-progress-bar-empty">
-                <div id="unity-progress-bar-full"></div>
+    <body>
+        <div id="unity-container" class="unity-desktop">
+            <!-- style="height: 100% !important;width: 100% !important;" -->
+            <canvas id="unity-canvas" tabindex="-1"></canvas>
+            <div id="unity-loading-bar">
+                <div id="unity-logo"></div>
+                <div id="unity-progress-bar-empty">
+                    <div id="unity-progress-bar-full"></div>
+                </div>
             </div>
-        </div>
-        <div id="unity-warning"> </div>
-        <div id="unity-footer">
-            <div id="unity-webgl-logo"></div>
-            <div id="unity-fullscreen-button"></div>
-            <div id="unity-build-title" style="position: relative;">
-                <button id="fullScreenBtn" title="click here to enter into full screen game" onclick="openFullscreen()" class="fullScreen-btn" style="
+            <div id="unity-warning"> </div>
+            <div id="unity-footer">
+                <div id="unity-webgl-logo"></div>
+                <div id="unity-fullscreen-button"></div>
+                <div id="unity-build-title" style="position: relative;">
+                    <button id="fullScreenBtn"
+                        title="click here to enter into full screen game"
+                        onclick="openFullscreen()" class="fullScreen-btn"
+                        style="
                 background: white;
                 padding: 10px;
                 border: 2px solid #cdcbcb;
@@ -39,36 +43,30 @@
                 width: 60px;
                 line-height: 60px;
             ">
-                    <?xml version="1.0" encoding="iso-8859-1"?>
-    
-                    <svg fill="#000000" height="800px" width="800px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
-                         viewBox="0 0 384.97 384.97" xml:space="preserve" style="height: 30px;width: 30px;">
-                    <g>
-                        <g id="Fullscreen_1_">
-                            <path d="M372.939,216.545c-6.123,0-12.03,5.269-12.03,12.03v132.333H24.061V24.061h132.333c6.388,0,12.03-5.642,12.03-12.03
+                        <?xml version="1.0" encoding="iso-8859-1"?>
+
+                        <svg fill="#000000" height="800px" width="800px"
+                            version="1.1" id="Capa_1"
+                            xmlns="http://www.w3.org/2000/svg"
+                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                            viewBox="0 0 384.97 384.97" xml:space="preserve"
+                            style="height: 30px;width: 30px;">
+                            <g>
+                                <g id="Fullscreen_1_">
+                                    <path
+                                        d="M372.939,216.545c-6.123,0-12.03,5.269-12.03,12.03v132.333H24.061V24.061h132.333c6.388,0,12.03-5.642,12.03-12.03
                                 S162.409,0,156.394,0H24.061C10.767,0,0,10.767,0,24.061v336.848c0,13.293,10.767,24.061,24.061,24.061h336.848
-                                c13.293,0,24.061-10.767,24.061-24.061V228.395C384.97,221.731,380.085,216.545,372.939,216.545z"/>
-                            <path d="M372.939,0H252.636c-6.641,0-12.03,5.39-12.03,12.03s5.39,12.03,12.03,12.03h91.382L99.635,268.432
+                                c13.293,0,24.061-10.767,24.061-24.061V228.395C384.97,221.731,380.085,216.545,372.939,216.545z" />
+                                    <path
+                                        d="M372.939,0H252.636c-6.641,0-12.03,5.39-12.03,12.03s5.39,12.03,12.03,12.03h91.382L99.635,268.432
                                 c-4.668,4.668-4.668,12.235,0,16.903c4.668,4.668,12.235,4.668,16.891,0L360.909,40.951v91.382c0,6.641,5.39,12.03,12.03,12.03
-                                s12.03-5.39,12.03-12.03V12.03l0,0C384.97,5.558,379.412,0,372.939,0z"/>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                    </g>
-                    </svg></button></div>
+                                s12.03-5.39,12.03-12.03V12.03l0,0C384.97,5.558,379.412,0,372.939,0z" />
+                                </g><g></g><g></g><g></g><g></g><g></g><g></g>
+                            </g>
+                        </svg></button></div>
+            </div>
         </div>
-    </div>
-    <script>
+        <script>
         var container = document.querySelector("#unity-container");
         var canvas = document.querySelector("#unity-canvas");
         var loadingBar = document.querySelector("#unity-loading-bar");
@@ -175,6 +173,6 @@
             }
         }
     </script>
-</body>
+    </body>
 
 </html>
